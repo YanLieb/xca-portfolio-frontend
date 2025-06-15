@@ -1,0 +1,23 @@
+.page-projects {
+  @apply overflow-hidden;
+}
+
+.page-projects .page-body {
+  @apply flex flex-col md:flex-row md:gap-8;
+}
+
+.page-projects .swiper:not(.swiper-initialized) {
+  @apply h-lvh;
+}
+
+.projectslist_title {
+  @apply bg-white relative z-30 mb-8 max-w-[160px] md:max-w-[250px] md:mb-0;
+}
+
+.projectslist_title::after {
+  @apply content-[''] block w-[90svw] h-full absolute top-0 -z-10 bg-white md:w-[50svw] md:right-[-2rem];
+}
+
+.project-list__item:last-child .project-list__separator {
+  @apply hidden;
+}

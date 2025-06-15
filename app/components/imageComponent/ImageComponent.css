@@ -1,0 +1,3 @@
+.page-about .page-header .image-component img {
+  @apply aspect-square w-[540px] max-w-full;
+}

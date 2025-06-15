@@ -1,0 +1,10 @@
+.page-about .page-body .title-component {
+  max-width: 230px;
+  margin-left: auto;
+  
+  @media (width > 1024px) {
+    max-width: unset;
+    margin-left: 0;
+    margin-top: 0;
+  }
+}

@@ -1,0 +1,3 @@
+.page-about .page-body .text-component:last-of-type {
+  @apply mb-12;
+}

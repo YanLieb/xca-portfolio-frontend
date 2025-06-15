@@ -1,0 +1,21 @@
+.swiper-buttons .swiper-button-disabled {
+  @apply opacity-30 cursor-auto;
+}
+
+
+.swiper-buttons > * {
+  @apply cursor-pointer;
+}
+
+.swiper:not(.swiper-initialized) .swiper-wrapper {
+  @apply gap-4;
+}
+
+.swiper:not(.swiper-initialized) .swiper-slide {
+  width: calc((100% - 4rem) / 1.2);
+  opacity: 0;
+  
+  @media (width >= 768px) {
+    width: calc((100% - 4rem) / 1.8);
+  }
+}

@@ -1,0 +1,7 @@
+body:has(.homepage) {
+  overflow: hidden;
+}
+
+body .homepage.container {
+  @apply p-0;
+}

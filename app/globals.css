@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1,
+.h1 {
+  @apply text-4xl font-chainprinter mb-8;
+}
+
+h2,
+.h2 {
+  @apply text-xl font-chainprinter mt-8 mb-4;
+}
+
+p,
+ul {
+  @apply mb-4;
+}
+
+html,
+body {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.page-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.page-content header,
+.page-content footer {
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+header + .page {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}

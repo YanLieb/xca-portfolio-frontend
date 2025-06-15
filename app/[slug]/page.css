@@ -1,0 +1,11 @@
+.page-about .container {
+  @apply flex flex-col gap-4 md:flex-row md:gap-8;
+}
+
+.page-about .page-header {
+  @apply basis-1/2;
+}
+
+.page-about .page-body {
+  @apply basis-1/2;
+}

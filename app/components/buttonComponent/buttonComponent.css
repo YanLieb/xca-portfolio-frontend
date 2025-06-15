@@ -1,0 +1,3 @@
+.page-about .page-body .button-component {
+  @apply justify-center lg:justify-end mb-8;
+}

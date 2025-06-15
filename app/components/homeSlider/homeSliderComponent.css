@@ -1,0 +1,3 @@
+.homepage .swiper .swiper-slide {
+  height: calc(100lvh - 180px)
+}

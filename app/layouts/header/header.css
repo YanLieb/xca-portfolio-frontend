@@ -1,0 +1,16 @@
+.header.is-menu-open .header__toggle-menu span {
+  @apply rotate-45 translate-y-2;
+}
+
+.header.is-menu-open .header__toggle-menu span + span {
+  @apply -rotate-45 -translate-y-1;
+}
+
+.header.is-menu-open .header__menu,
+.header.is-menu-open .header__social-links {
+  @apply left-0;
+}
+
+.header + * {
+  @apply mt-16 md:mt-20;
+}
