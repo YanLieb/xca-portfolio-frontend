@@ -13,11 +13,11 @@ import "swiper/css";
 import "./SliderComponent.css";
 import sliderArrow from "@/public/svg/slider-arrow.svg";
 
-import { assetsUrl } from "@/strapi";
+
 
 export default function SliderComponent({
   medias,
-  setDescriptionContainerWidth = (slideWidth) => {},
+  setDescriptionContainerWidth = (slideWidth) => { },
 }) {
   const containerRef = useRef(null);
   const [swiperNavigationWidth, setSwiperNavigationWidth] = useState(0);
@@ -98,7 +98,7 @@ export default function SliderComponent({
         <SwiperSlide key={index} className="slider-component__slide">
           <Image
             priority={index === 0}
-            src={`${assetsUrl}${media.url}`}
+            src={media.url}
             alt={media.alternativeText ?? media.name}
             height={media.height}
             width={media.width}

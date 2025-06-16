@@ -1,7 +1,7 @@
 import ButtonComponent from "@/app/components/buttonComponent/ButtonComponent";
 import Link from "next/link";
 import Image from "next/image";
-import { assetsUrl } from "@/strapi";
+
 
 export default function ListItem({ project, index }) {
   const projectLink = (project) => {
@@ -37,7 +37,7 @@ export default function ListItem({ project, index }) {
       <div className="project-list__item-image my-auto h-full basis-1/2 md:basis-0 md:max-h-full">
         <Link href={projectLink(project)}>
           <Image
-            src={assetsUrl + project.cover.url}
+            src={project.cover.url}
             alt={project.cover.alternativeText ?? project.title}
             width={project.cover.width}
             height={project.cover.height}

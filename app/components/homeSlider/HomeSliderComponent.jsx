@@ -13,7 +13,7 @@ import { useGSAP } from "@gsap/react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { assetsUrl } from "@/strapi";
+
 import "./homeSliderComponent.css";
 import sliderArrow from "@/public/svg/slider-arrow.svg";
 
@@ -125,7 +125,7 @@ export default function HomeSliderComponent({ slides }) {
           <Link href={projectLink(slide)} className="home-slider__slide-container w-full h-full">
             <div className="home-slider__slide-image">
               <Image
-                src={assetsUrl + slide.cover.url}
+                src={slide.cover.url}
                 alt={slide.cover.alternativeText ?? slide.cover.legend}
                 height={slide.cover.height}
                 width={slide.cover.width}

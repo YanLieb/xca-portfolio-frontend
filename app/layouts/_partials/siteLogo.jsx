@@ -1,4 +1,4 @@
-import { assetsUrl } from "@/strapi";
+
 import Image from "next/image";
 import Link from "next/link";
 
