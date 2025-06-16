@@ -10,7 +10,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "xca-portfolio-strapi.up.railway.app",
+        hostname: "natural-friendship-4e4392b7e4.strapiapp.com",
         pathname: "/uploads/**"
       },
     ],

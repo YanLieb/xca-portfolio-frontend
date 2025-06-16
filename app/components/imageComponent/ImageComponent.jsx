@@ -16,7 +16,7 @@ export default function ImageComponent({ media, classes }) {
         }
         height={media.image.height ?? media.height}
         width={media.image.width ?? media.width}
-        src={`${assetsUrl}${media.image.url}`}
+        src={`${media.image.url}`}
         priority={media.preload}
       />
     </div>
