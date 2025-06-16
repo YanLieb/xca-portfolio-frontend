@@ -16,8 +16,13 @@ export default function Project({ project }) {
     <div className="page page-project project-component overflow-hidden">
       <div className="project-component__content container">
         <div className="project-component__slider">
+          {project.gallery.length === 0 && (
+            <div className="project-component__no-gallery text-center italic">
+              <p>No Gallery yet</p>
+            </div>
+          )}
           <SliderComponent
-            medias={[project.cover, ...project.gallery]}
+            medias={[project.cover, ...project.gallery ? project.gallery : []]}
             setDescriptionContainerWidth={setDescriptionContainerWidth}
           />
         </div>
