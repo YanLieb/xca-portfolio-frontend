@@ -6,7 +6,7 @@ const nextConfig = {
         protocol: "http",
         hostname: "strapi",
         port: "1337",
-        pathname: "/uploads/**"
+        pathname: "/**"
       },
       {
         protocol: "https",

@@ -6,7 +6,7 @@ import SliderComponent from "@/app/projects/[slug]/project/sliderComponent/Slide
 import TextComponent from "@/app/components/textComponent/TextComponent";
 
 export default function Project({ project }) {
-  const [descriptionWidth, setDescriptionWidth] = useState(0);
+  const [descriptionWidth, setDescriptionWidth] = useState("");
 
   const setDescriptionContainerWidth = (slideWidth) => {
     setDescriptionWidth(slideWidth);

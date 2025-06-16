@@ -13,7 +13,7 @@ import "swiper/css";
 import "./SliderComponent.css";
 import sliderArrow from "@/public/svg/slider-arrow.svg";
 
-
+import { assetsUrl } from "@/strapi";
 
 export default function SliderComponent({
   medias,

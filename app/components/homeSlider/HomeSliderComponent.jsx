@@ -13,7 +13,7 @@ import { useGSAP } from "@gsap/react";
 import Image from "next/image";
 import Link from "next/link";
 
-
+import { assetsUrl } from "@/strapi";
 import "./homeSliderComponent.css";
 import sliderArrow from "@/public/svg/slider-arrow.svg";
 

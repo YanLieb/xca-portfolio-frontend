@@ -1,4 +1,4 @@
-
+import { assetsUrl } from "@/strapi";
 import Image from "next/image";
 
 export default function SocialLinks({ links, classes }) {

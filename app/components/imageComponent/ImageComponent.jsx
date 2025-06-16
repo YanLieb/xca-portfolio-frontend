@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-
+import { assetsUrl } from "@/strapi";
 
 import "./ImageComponent.css";
 

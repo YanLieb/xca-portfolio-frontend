@@ -12,6 +12,11 @@ h2,
   @apply text-xl font-chainprinter mt-8 mb-4;
 }
 
+h3,
+.h3 {
+  @apply text-lg font-chainprinter mt-6 mb-2;
+}
+
 p,
 ul {
   @apply mb-4;

@@ -82,42 +82,43 @@ export default function ProjectList({ projects }) {
   }
 
   return (
-    <Swiper
-      ref={projectListRef}
-      className="project-list h-dvh mb-12 md:h-full max-w-full !overflow-visible"
-      modules={[Pagination, Navigation, Mousewheel]}
-      slidesPerView={2}
-      spaceBetween={spaceBetween}
-      direction={direction}
-      mousewheel={{
-        enable: true,
-        releaseOnEdges: true,
-        thresholdDelta: 50,
-        thresholdTime: 100,
-      }}
-      breakpoints={{
-        768: {
-          slidesPerView: 1.5,
-        },
-        1024: {
-          slidesPerView: 2,
-        },
-        1280: {
-          slidesPerView: 2.5,
-        },
-        1536: {
-          slidesPerView: 3.1,
-        },
-      }}
-    >
-      {sortedProjects.map((project, index) => (
-        <SwiperSlide
-          key={index}
-          className="project-list__item w-full h-full md:max-h-fit"
-        >
-          <ListItem project={project} index={index} />
-        </SwiperSlide>
-      ))}
-    </Swiper>
+    <div ref={projectListRef} className="project-list flex justify-center items-center h-full w-full">
+      <Swiper
+        className="h-dvh mb-12 md:h-full w-full !overflow-visible"
+        modules={[Pagination, Navigation, Mousewheel]}
+        slidesPerView={2}
+        spaceBetween={spaceBetween}
+        direction={direction}
+        mousewheel={{
+          enable: true,
+          releaseOnEdges: true,
+          thresholdDelta: 50,
+          thresholdTime: 100,
+        }}
+        breakpoints={{
+          768: {
+            slidesPerView: 1.5,
+          },
+          1024: {
+            slidesPerView: 2,
+          },
+          1280: {
+            slidesPerView: 2.5,
+          },
+          1536: {
+            slidesPerView: 3.1,
+          },
+        }}
+      >
+        {sortedProjects.map((project, index) => (
+          <SwiperSlide
+            key={index}
+            className="project-list__item w-full h-full md:max-h-fit"
+          >
+            <ListItem project={project} index={index} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
   );
 }

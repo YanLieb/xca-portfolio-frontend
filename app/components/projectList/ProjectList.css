@@ -2,7 +2,11 @@
   @apply overflow-hidden;
 }
 
-.page-projects .page-body {
+.page-projects .page-body{
+  @apply w-full;
+}
+
+.page-projects__container {
   @apply flex flex-col md:flex-row md:gap-8;
 }
 

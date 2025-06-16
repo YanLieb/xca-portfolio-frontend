@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect } from "react";
-
+import { assetsUrl } from "@/strapi";
 import Image from "next/image"
 import Link from "next/link";
 

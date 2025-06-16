@@ -2,7 +2,6 @@ import ButtonComponent from "@/app/components/buttonComponent/ButtonComponent";
 import Link from "next/link";
 import Image from "next/image";
 
-
 export default function ListItem({ project, index }) {
   const projectLink = (project) => {
     return `/projects/${project.slug}`;
@@ -25,8 +24,9 @@ export default function ListItem({ project, index }) {
             limitText(project.description[0].children[0].text)}
         </p>
         <div className="flex justify-between items-center gap-4">
+
           <ButtonComponent
-            button={{ title: "Read more", link: projectLink(project) }}
+            button={{ title: project.button_text ?? 'Read more', link: projectLink(project) }}
             classes="project-list__item-button"
           />
           <span className="font-chainprinter text-5xl hidden md:block">
@@ -42,6 +42,7 @@ export default function ListItem({ project, index }) {
             width={project.cover.width}
             height={project.cover.height}
             className="aspect-[2/3] h-full w-full object-cover"
+            priority
           />
         </Link>
       </div>
