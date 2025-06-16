@@ -3,9 +3,15 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
+        protocol: "http",
+        hostname: "strapi",
+        port: "1337",
+        pathname: "/uploads/**"
+      },
+      {
         protocol: "https",
         hostname: "natural-friendship-4e4392b7e4.media.strapiapp.com",
-        pathname: "/**",
+        pathname: "/**"
       },
     ],
     dangerouslyAllowSVG: true,
