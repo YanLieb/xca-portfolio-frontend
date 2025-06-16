@@ -5,13 +5,14 @@ import Link from "next/link";
 export default function SiteLogo({ logo, classes = "" }) {
   return (
     <Link href="/" className={classes}>
-      <Image
+      <img src={logo.url} alt={logo.alternativeText ?? logo.name} />
+      {/* <Image
         src={logo.url}
         alt={logo.alternativeText ?? logo.name}
         width={logo.width}
         height={logo.height}
         priority
-      />
+      /> */}
     </Link>
   );
 }
