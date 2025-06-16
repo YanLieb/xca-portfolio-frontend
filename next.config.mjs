@@ -10,7 +10,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "natural-friendship-4e4392b7e4.strapiapp.com",
+        hostname: "natural-friendship-4e4392b7e4.media.strapiapp.com",
         pathname: "/uploads/**"
       },
     ],
