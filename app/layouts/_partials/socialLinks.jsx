@@ -9,7 +9,7 @@ export default function SocialLinks({ links, classes }) {
           <a href={link.url} target="_blank">
             <Image
               className="w-5 h-full"
-              src={`${assetsUrl}${link.icon.url}`}
+              src={link.icon.url}
               alt={link.icon.alternativeText ?? link.icon.name}
               width={link.icon.width}
               height={link.icon.height}
