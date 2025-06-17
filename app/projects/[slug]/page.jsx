@@ -1,6 +1,8 @@
 import getStrapiContent from "@/strapi";
 import Project from "@/app/projects/[slug]/project/Project";
 
+import { notFound } from 'next/navigation';
+
 export async function generateStaticParams() {
   const data = await getStrapiContent("projects");
 
@@ -17,19 +19,16 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }) {
-  try {
-    const { slug } = await params;
-    const request = `projects?filters[slug][$eqi]=${slug}&populate=*`;
+  const { slug } = await params;
+  const request = `projects?filters[slug][$eqi]=${slug}&populate=*`;
 
-    const project = await getStrapiContent(request);
-    return <Project project={project[0]} />;
-  } catch (e) {
-    console.error(e);
-    return (
-      <div className="section__content">
-        <div className="section__title">Error</div>
-        <div className="section__description">{e.message}</div>
-      </div>
-    );
+  const project = await getStrapiContent(request);
+
+  if (!project || project.length === 0) {
+    console.warn(`Project with slug "${slug}" not found.`);
+    notFound();
   }
+
+  return <Project project={project[0]} />;
+
 }

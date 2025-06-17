@@ -1,13 +1,12 @@
 'use client'
 import { useState, useEffect } from "react";
-import { assetsUrl } from "@/strapi";
 import Image from "next/image"
 import Link from "next/link";
 
 import buttonArrow from "@/public/svg/button-arrow.svg"
 import './buttonComponent.css'
 
-export default function ButtonComponent({ button, classes }) {
+export default function ButtonComponent({ button, classes, addArrow = true }) {
 	const [buttonState, setButtonState] = useState({ ...button });
 
 	useEffect(() => {
@@ -39,7 +38,7 @@ export default function ButtonComponent({ button, classes }) {
 			rel={buttonState.open_in_new_tab ? "noopener noreferrer" : undefined}
 		>
 			{buttonState.title}
-			<Image src={buttonArrow} alt="button arrow" className="w-8 h-auto" />
+			{addArrow && <Image src={buttonArrow} alt="button arrow" className="w-8 h-auto" />}
 		</Link>
 	);
 }

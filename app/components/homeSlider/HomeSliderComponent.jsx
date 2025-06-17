@@ -13,11 +13,12 @@ import { useGSAP } from "@gsap/react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { assetsUrl } from "@/strapi";
 import "./homeSliderComponent.css";
 import sliderArrow from "@/public/svg/slider-arrow.svg";
 
-export default function HomeSliderComponent({ slides }) {
+import ButtonComponent from "../buttonComponent/ButtonComponent";
+
+export default function HomeSliderComponent({ slides, button }) {
   const containerRef = useRef(null);
   const [swiperNavigationWidth, setSwiperNavigationWidth] = useState(0);
   const swiperInstance = useRef(null);
@@ -126,7 +127,7 @@ export default function HomeSliderComponent({ slides }) {
             <div className="home-slider__slide-image">
               <Image
                 src={slide.cover.url}
-                alt={slide.cover.alternativeText ?? slide.cover.legend}
+                alt={slide.cover.alternativeText ?? slide.cover.name}
                 height={slide.cover.height}
                 width={slide.cover.width}
                 className="object-cover aspect-[2/3] sm:aspect-square"
@@ -162,9 +163,7 @@ export default function HomeSliderComponent({ slides }) {
             />
           </div>
         </div>
-        <Link href="" className="font-medium">
-          See all projects
-        </Link>
+        <ButtonComponent button={button} classes={'font-medium'} addArrow={false} />
       </div>
     </Swiper >
   );

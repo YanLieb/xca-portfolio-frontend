@@ -6,13 +6,15 @@ import "./home.css";
 export default async function Page() {
   try {
     const request = `projects?filters[featured][$eq]=true&populate=cover`;
+    const homepageRequest = `pages?filters[slug][$eq]=/&populate[body][populate]=*`;
+    const homepage = await getStrapiContent(homepageRequest);
 
     const projects = await getStrapiContent(request);
 
     return (
       <div className="page page-home overflow-hidden">
         <div className="homepage-container container">
-          <HomeSliderComponent slides={projects} />
+          <HomeSliderComponent slides={projects} button={homepage[0].body[0]} />
         </div>
       </div >
     );

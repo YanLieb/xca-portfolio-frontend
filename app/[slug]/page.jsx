@@ -4,6 +4,8 @@ import PageHeader from "./layouts/pageHeader";
 import PageBody from "./layouts/pageBody";
 import "./page.css";
 
+import { notFound } from 'next/navigation';
+
 export async function generateStaticParams() {
   const pages = await getStrapiContent("pages");
 
@@ -33,38 +35,33 @@ export default async function Page({ params }) {
     ","
   )}`;
 
-  try {
-    const pageItem = await getStrapiContent(request);
+  const pageItem = await getStrapiContent(request);
 
-    let projects = [];
-    if (slug === "projects") {
-      projects = await getStrapiContent("projects?populate=cover");
-    }
-
-    if (!pageItem) throw new Error("Page does not exist or has no content");
-
-    const header = pageItem[0].header
-      ? pageItem[0].header
-      : console.warn("No header content");
-    const body = pageItem[0].body
-      ? pageItem[0].body
-      : console.warn("No body content");
-
-    return (
-      <div className={`page page-${pageItem[0].slug}`}>
-        <div className={`page-${pageItem[0].slug}__container container`}>
-          <PageHeader header={header} />
-          <PageBody body={body} projects={projects} slug={slug} />
-        </div>
-      </div>
-    );
-  } catch (e) {
-    console.error(e);
-    return (
-      <div className="section__content">
-        <div className="section__title">Error</div>
-        <div className="section__description">{e.message}</div>
-      </div>
-    );
+  if (!pageItem || pageItem.length === 0) {
+    console.warn(`Page with slug "${slug}" not found.`);
+    notFound();
   }
+
+  let projects = [];
+  if (slug === "projects") {
+    projects = await getStrapiContent("projects?populate=cover");
+  }
+
+  if (!pageItem) throw new Error("Page does not exist or has no content");
+
+  const header = pageItem[0].header
+    ? pageItem[0].header
+    : console.warn("No header content");
+  const body = pageItem[0].body
+    ? pageItem[0].body
+    : console.warn("No body content");
+
+  return (
+    <div className={`page page-${pageItem[0].slug}`}>
+      <div className={`page-${pageItem[0].slug}__container container`}>
+        <PageHeader header={header} />
+        <PageBody body={body} projects={projects} slug={slug} />
+      </div>
+    </div>
+  );
 }
