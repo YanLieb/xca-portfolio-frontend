@@ -8,7 +8,9 @@ export default function ListItem({project, index}) {
 		return `/projects/${project.slug}`;
 	};
 	
-	const limitText = (text, limit = 250) => {
+	const limitText = (text, limit = 150) => {
+		window.innerWidth < 768 && (limit = 100);
+		
 		if (text.length <= limit) return text;
 		const truncated = text.slice(0, limit);
 		return truncated.slice(0, truncated.lastIndexOf(" ")) + "...";
@@ -22,7 +24,7 @@ export default function ListItem({project, index}) {
 					 {project.title}
 				 </h2>
 				 <p className="project-list__item-description m-0">
-					 {project.short_description ??
+					 {limitText(project.short_description) ??
 							limitText(project.description[0].children[0].text)}
 				 </p>
 				 <div className="flex justify-between items-center gap-4">
@@ -36,7 +38,7 @@ export default function ListItem({project, index}) {
           </span>
 				 </div>
 			 </div>
-			 <div className="project-list__item-image my-auto h-full basis-1/2 md:basis-0 md:max-h-full">
+			 <div className="project-list__item-image my-auto h-full basis-1/2 max-w-[50%] md:basis-0 md:max-h-full md:max-w-full">
 				 <Link href={projectLink(project)}>
 					 {project.cover.mime.startsWith("video/") ? (
 							<VideoComponent
