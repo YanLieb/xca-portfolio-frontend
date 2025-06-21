@@ -37,7 +37,7 @@ export default function ButtonComponent({ button, classes, addArrow = true }) {
 			target={buttonState.open_in_new_tab ? "_blank" : "_self"}
 			rel={buttonState.open_in_new_tab ? "noopener noreferrer" : undefined}
 		>
-			{buttonState.title}
+			{buttonState.title ?? "Découvrir"}
 			{addArrow && <Image src={buttonArrow} alt="button arrow" className="w-8 h-auto" />}
 		</Link>
 	);

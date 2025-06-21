@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
+import VideoComponent from "@/app/components/videoComponent/VideoComponent";
+
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
@@ -12,8 +14,6 @@ import "swiper/css";
 
 import "./SliderComponent.css";
 import sliderArrow from "@/public/svg/slider-arrow.svg";
-
-import { assetsUrl } from "@/strapi";
 
 export default function SliderComponent({
   medias,
@@ -95,17 +95,22 @@ export default function SliderComponent({
       }}
     >
       {medias.map((media, index) => (
-        <SwiperSlide key={index} className="slider-component__slide">
-          <Image
-            priority={index === 0}
-            src={media.url}
-            alt={media.alternativeText ?? media.name}
-            height={media.height}
-            width={media.width}
-            className="object-cover aspect-[2/3] md:aspect-square"
-          />
+        <SwiperSlide key={index} className={`slider-component__slide`}>
+          {media.mime.startsWith("video/") &&
+            <VideoComponent media={media} classes={"aspect-square flex flex-col items-center justify-center"} controls={false} autoplay={false} />
+          }
+          {!media.mime.startsWith("video/") &&
+            <Image
+              priority={index === 0}
+              src={media.url}
+              alt={media.alternativeText ?? media.name}
+              height={media.height}
+              width={media.width}
+              className="object-cover aspect-[2/3] md:aspect-square"
+            />}
         </SwiperSlide>
-      ))}
+      ))
+      }
       <div
         className="swiper-navigation mx-auto my-4 flex justify-between"
         style={{ maxWidth: `${swiperNavigationWidth}px` }}
@@ -124,6 +129,6 @@ export default function SliderComponent({
           </div>
         </div>
       </div>
-    </Swiper>
+    </Swiper >
   );
 }

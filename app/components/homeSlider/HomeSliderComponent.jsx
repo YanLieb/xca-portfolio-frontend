@@ -17,6 +17,7 @@ import "./homeSliderComponent.css";
 import sliderArrow from "@/public/svg/slider-arrow.svg";
 
 import ButtonComponent from "../buttonComponent/ButtonComponent";
+import VideoComponent from "../videoComponent/VideoComponent";
 
 export default function HomeSliderComponent({ slides, button }) {
   const containerRef = useRef(null);
@@ -125,14 +126,17 @@ export default function HomeSliderComponent({ slides, button }) {
         <SwiperSlide key={index} className="home-slider__slide mb-10" >
           <Link href={projectLink(slide)} className="home-slider__slide-container w-full h-full">
             <div className="home-slider__slide-image">
-              <Image
-                src={slide.cover.url}
-                alt={slide.cover.alternativeText ?? slide.cover.name}
-                height={slide.cover.height}
-                width={slide.cover.width}
-                className="object-cover aspect-[2/3] sm:aspect-square"
-                priority={true}
-              />
+              {slide.cover?.mime.startsWith("video/") &&
+                <VideoComponent media={slide.cover} />}
+              {!(slide.cover?.mime.startsWith("video/")) &&
+                <Image
+                  src={slide.cover.url}
+                  alt={slide.cover.alternativeText ?? slide.cover.name}
+                  height={slide.cover.height}
+                  width={slide.cover.width}
+                  className="object-cover aspect-[2/3] sm:aspect-square"
+                  priority={true}
+                />}
             </div>
             <div className="text-right">
               <h2 className="home-slider__slide-title m-0 text-4xl -mt-4 text-balance">
