@@ -1,4 +1,5 @@
 import getStrapiContent from "@/strapi";
+import { notFound } from "next/navigation";
 
 import HomeSliderComponent from "@/app/components/homeSlider/HomeSliderComponent";
 import "./home.css";
@@ -11,10 +12,17 @@ export default async function Page() {
 
     const projects = await getStrapiContent(request);
 
+    if (!homepage || homepage.length === 0) {
+      console.warn("Homepage content not found.");
+      notFound();
+    }
+
     return (
       <div className="page page-home overflow-hidden">
         <div className="homepage-container container">
-          <HomeSliderComponent slides={projects} button={homepage[0].body[0]} />
+          {projects && projects.length > 0 && homepage[0].body[0] && (
+            <HomeSliderComponent slides={projects} button={homepage[0].body[0]} />
+          )}
         </div>
       </div >
     );

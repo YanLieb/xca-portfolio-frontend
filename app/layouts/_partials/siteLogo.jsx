@@ -1,8 +1,8 @@
-import { assetsUrl } from "@/strapi";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function SiteLogo({ logo, classes = "" }) {
+  console.log(logo.url)
   return (
     <Link href="/" className={classes}>
       <Image

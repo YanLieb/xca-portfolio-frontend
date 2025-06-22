@@ -86,7 +86,7 @@ export default function ProjectList({ projects }) {
       <Swiper
         className="h-dvh mb-12 md:h-full w-full !overflow-visible"
         modules={[Pagination, Navigation, Mousewheel]}
-        slidesPerView={3}
+        slidesPerView={2.5}
         spaceBetween={spaceBetween}
         direction={direction}
         mousewheel={{

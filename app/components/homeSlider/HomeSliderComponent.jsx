@@ -127,7 +127,7 @@ export default function HomeSliderComponent({ slides, button }) {
           <Link href={projectLink(slide)} className="home-slider__slide-container w-full h-full">
             <div className="home-slider__slide-image">
               {slide.cover?.mime.startsWith("video/") &&
-                <VideoComponent media={slide.cover} videoClasses={'pointer-events-none'} />}
+                <VideoComponent media={slide.cover} videoClasses={'pointer-events-none object-cover aspect-[2/3] sm:aspect-square'} />}
               {!(slide.cover?.mime.startsWith("video/")) &&
                 <Image
                   src={slide.cover.url}
