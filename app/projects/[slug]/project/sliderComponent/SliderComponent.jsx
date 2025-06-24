@@ -72,6 +72,7 @@ export default function SliderComponent({
 			spaceBetween={15}
 			centeredSlides={true}
 			initialSlide={1}
+			rewind={true}
 			onSwiper={(swiper) => {
 				swiperInstance.current = swiper;
 				updateSlideWidth();
