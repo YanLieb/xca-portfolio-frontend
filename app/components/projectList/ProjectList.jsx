@@ -14,6 +14,7 @@ import ListItem from "./_partials/ListItem";
 import "./ProjectList.css";
 
 export default function ProjectList({ projects }) {
+  const [isMobile, setIsMobile] = useState(typeof window !== "undefined" && window.innerWidth < 768);
   const [sortedProjects, setSortedProjects] = useState([]);
   const projectListRef = useRef(null);
 
@@ -26,6 +27,12 @@ export default function ProjectList({ projects }) {
     return window.innerWidth < 768 ? 60 : 40;
   };
 
+  const updateIsMobile = () => {
+    if (typeof window !== "undefined") {
+      setIsMobile(window.innerWidth < 768);
+    }
+  };
+
   const [direction, setDirection] = useState(getDirection() ?? "horizontal");
   const [spaceBetween, setSpaceBetween] = useState(getSpaceBetween() ?? 60);
 
@@ -36,10 +43,12 @@ export default function ProjectList({ projects }) {
     setSortedProjects(sorted);
 
     const handleResize = () => {
-      //setSlidesPerView(getSlidesPerView());
+      updateIsMobile();
       setDirection(getDirection());
       setSpaceBetween(getSpaceBetween());
     };
+
+    handleResize(); // Initial call to set the correct state on mount
 
     window.addEventListener("resize", handleResize);
     return () => {
@@ -83,42 +92,56 @@ export default function ProjectList({ projects }) {
 
   return (
     <div ref={projectListRef} className="project-list flex justify-center items-center h-full w-full">
-      <Swiper
-        className="h-dvh mb-12 md:h-full w-full !overflow-visible"
-        modules={[Pagination, Navigation, Mousewheel]}
-        slidesPerView={2.5}
-        spaceBetween={spaceBetween}
-        direction={direction}
-        mousewheel={{
-          enable: true,
-          releaseOnEdges: true,
-          thresholdDelta: 50,
-          thresholdTime: 100,
-        }}
-        breakpoints={{
-          768: {
-            slidesPerView: 1.5,
-          },
-          1024: {
-            slidesPerView: 2,
-          },
-          1280: {
-            slidesPerView: 2.5,
-          },
-          1536: {
-            slidesPerView: 3.1,
-          },
-        }}
-      >
-        {sortedProjects.map((project, index) => (
-          <SwiperSlide
-            key={index}
-            className="project-list__item w-full h-full md:max-h-fit"
-          >
-            <ListItem project={project} index={index} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      {isMobile ? (
+        <div className="w-full">
+          {sortedProjects.map((project, index) => (
+            <div
+              key={index}
+              className="project-list__item w-full h-full mb-16"
+            >
+              <ListItem project={project} index={index} />
+            </div>
+          ))}
+        </div>
+      ) : (
+        <Swiper
+          className="h-dvh mb-12 md:h-full w-full !overflow-visible"
+          modules={[Pagination, Navigation, Mousewheel]}
+          slidesPerView={2.5}
+          spaceBetween={spaceBetween}
+          direction={direction}
+          rewind={true}
+          mousewheel={{
+            enable: true,
+            releaseOnEdges: true,
+            thresholdDelta: 50,
+            thresholdTime: 100,
+          }}
+          breakpoints={{
+            768: {
+              slidesPerView: 1.5,
+            },
+            1024: {
+              slidesPerView: 2,
+            },
+            1280: {
+              slidesPerView: 2.5,
+            },
+            1536: {
+              slidesPerView: 3.1,
+            },
+          }}
+        >
+          {sortedProjects.map((project, index) => (
+            <SwiperSlide
+              key={index}
+              className="project-list__item w-full h-full md:max-h-fit"
+            >
+              <ListItem project={project} index={index} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      )}
     </div>
   );
 }

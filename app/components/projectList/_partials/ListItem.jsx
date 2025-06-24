@@ -19,8 +19,8 @@ export default function ListItem({ project, index }) {
 	return (
 		<div className="w-full h-full relative flex gap-4 md:flex-col-reverse sm:justify-end">
 			<div
-				className="project-list__item-text flex flex-col gap-4 justify-evenly basis-1/2 md:basis-0 md:w-full md:min-h-[180px]">
-				<h2 className="project-list__item-title text-2xl m-0">
+				className="project-list__item-text flex flex-col gap-4 justify-evenly basis-1/2 max-w-[50%] md:max-w-full md:basis-0 md:w-full md:min-h-[180px]">
+				<h2 className="project-list__item-title text-2xl m-0 overflow-hidden text-ellipsis leading-6">
 					{project.title}
 				</h2>
 				<p className="project-list__item-description m-0">
