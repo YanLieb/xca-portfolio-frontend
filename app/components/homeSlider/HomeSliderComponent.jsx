@@ -92,7 +92,7 @@ export default function HomeSliderComponent({ slides, button }) {
       slidesPerView={1}
       spaceBetween={15}
       centeredSlides={true}
-      rewind={true}
+      loop={true}
       initialSlide={1}
       mousewheel={{
         enable: true,
