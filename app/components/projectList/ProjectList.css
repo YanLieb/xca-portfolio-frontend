@@ -1,16 +1,16 @@
-.page-projects {
+.page-projets {
   @apply overflow-hidden;
 }
 
-.page-projects .page-body{
+.page-projets .page-body{
   @apply w-full;
 }
 
-.page-projects__container {
+.page-projets__container {
   @apply flex flex-col md:flex-row md:gap-8;
 }
 
-.page-projects .swiper:not(.swiper-initialized) {
+.page-projets .swiper:not(.swiper-initialized) {
   @apply h-lvh;
 }
 

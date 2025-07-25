@@ -4,6 +4,11 @@ import { notFound } from "next/navigation";
 import HomeSliderComponent from "@/app/components/homeSlider/HomeSliderComponent";
 import "./home.css";
 
+export const metadata = {
+  title: "Home | Xca Portfolio",
+  description: "Welcome to the design portfolio of Xcaret Castillo Sanchez.",
+};
+
 export default async function Page() {
   try {
     const request = `projects?filters[featured][$eq]=true&populate=cover`;

@@ -9,7 +9,7 @@ export default function PageBody(params) {
 	return (
 		 <section className={"page-body"}>
 			 <SwitchComponent pageContent={body}/>
-			 {slug === "projects" ? <ProjectList projects={projects}/> : null}
+			 {slug === "projets" ? <ProjectList projects={projects}/> : null}
 		 </section>
 	)
 }

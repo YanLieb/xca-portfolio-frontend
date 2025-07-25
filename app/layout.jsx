@@ -5,18 +5,11 @@ import Header from "@/app/layouts/header/header";
 import Footer from "@/app/layouts/footer";
 import LoadingOverlay from '@/app/layouts/LoadingOverlay/LoadingOverlay'
 
-export const metadata = {
-  title: "Xca Portfolio",
-  description: "Design Portfolio of Xcaret Castillo Sanchez",
-};
-
 export default function RootLayout({ children }) {
 
   return (
     <html lang="en" className={`${GeistSans.variable} font-light`}>
       <head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
         <link rel="stylesheet" href="https://use.typekit.net/khg4nue.css" />
       </head>
 
