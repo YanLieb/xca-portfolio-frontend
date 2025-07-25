@@ -5,8 +5,8 @@ import HomeSliderComponent from "@/app/components/homeSlider/HomeSliderComponent
 import "./home.css";
 
 export const metadata = {
-  title: "Home | Xca Portfolio",
-  description: "Welcome to the design portfolio of Xcaret Castillo Sanchez.",
+  title: "Accueil | Xca Portfolio",
+  description: "Bienvenue sur le portfolio de Xcaret Castillo Sánchez, ou Xca, digital designer à l'ESADSE.",
 };
 
 export default async function Page() {
