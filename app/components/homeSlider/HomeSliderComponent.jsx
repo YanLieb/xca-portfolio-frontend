@@ -118,6 +118,9 @@ export default function HomeSliderComponent({ slides, button }) {
           slidesPerView: 1.3,
         },
         1280: {
+          slidesPerView: 2.2,
+        },
+        1550: {
           slidesPerView: 1.8,
         },
       }}
@@ -155,7 +158,7 @@ export default function HomeSliderComponent({ slides, button }) {
         style={{ width: swiperNavigationWidth }}
       >
         <div className="swiper-pagination hidden md:block"></div>
-        <div className="swiper-buttons flex items-center gap-4">
+        <div className="swiper-buttons flex items-center gap-4 md:absolute md:left-1/2 md:-translate-x-1/2">
           <div className="swiper-button-prev cursor-pointer py-2">
             <Image src={sliderArrow} alt="slider arrow" />
           </div>
