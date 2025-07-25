@@ -56,8 +56,10 @@ export default async function Page({ params }) {
     ? pageItem[0].body
     : console.warn("No body content");
 
+  console.log(pageItem);
+
   return (
-    <div className={`page page-${pageItem[0].slug}`}>
+    <div className={`page page-${pageItem[0].slug} page-${pageItem[0].id}`}>
       <div className={`page-${pageItem[0].slug}__container container`}>
         <PageHeader header={header} />
         <PageBody body={body} projects={projects} slug={slug} />

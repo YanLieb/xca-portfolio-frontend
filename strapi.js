@@ -14,13 +14,13 @@ export default async function getStrapiContent(request) {
     if (!data) throw new Error("no strapi data found");
 
 
-    if (env === 'development') {
+   /* if (env === 'development') {
       const modifiedData = Object.fromEntries(
         Object.entries(data.data).map(([key, value]) => {
           if (!value) return [key, value];
 
           if (key === 'url') {
-            return [key, `${assetsUrl}${value}`];
+            return [key, `${value}`];
           }
 
           if (typeof value === 'object' && !Array.isArray(value)) {
@@ -41,7 +41,7 @@ export default async function getStrapiContent(request) {
       );
 
       return modifiedData;
-    }
+    }*/
 
     return data.data;
   } catch (err) {

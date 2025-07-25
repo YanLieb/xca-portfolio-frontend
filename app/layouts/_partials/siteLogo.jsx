@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function SiteLogo({ logo, classes = "" }) {
-  console.log(logo.url)
-  return (
+
+    return (
     <Link href="/" className={classes}>
       <Image
         src={logo.url}
