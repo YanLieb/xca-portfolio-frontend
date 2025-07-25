@@ -30,6 +30,9 @@ export default function Project({ project }) {
           className={`project-component__description mx-auto`}
           style={{ width: descriptionWidth }}
         >
+          <div className="project-component__title">
+            <h1 className="text-4xl font-bold">{project.title}</h1>
+          </div>
           <TextComponent text={project.description} />
         </div>
       </div>
