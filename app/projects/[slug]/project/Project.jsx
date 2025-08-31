@@ -21,7 +21,7 @@ export default function Project({ project }) {
               <p>No Gallery yet</p>
             </div>
           )}
-          {project.cover && project.gallery ? (
+          {project.cover && !project.gallery.length ? (
             <SliderComponent
               medias={[project.cover, ...(project.gallery ? project.gallery : [])]}
               setDescriptionContainerWidth={setDescriptionContainerWidth}
