@@ -21,10 +21,17 @@ export default function Project({ project }) {
               <p>No Gallery yet</p>
             </div>
           )}
-          <SliderComponent
-            medias={[project.cover, ...project.gallery ? project.gallery : []]}
-            setDescriptionContainerWidth={setDescriptionContainerWidth}
-          />
+          {project.cover && project.gallery ? (
+            <SliderComponent
+              medias={[project.cover, ...(project.gallery ? project.gallery : [])]}
+              setDescriptionContainerWidth={setDescriptionContainerWidth}
+            />
+          ) : (
+            <SliderComponent
+              medias={project.cover ? [project.cover] : []}
+              setDescriptionContainerWidth={setDescriptionContainerWidth}
+            />
+          )}
         </div>
         <div
           className={`project-component__description mx-auto`}
